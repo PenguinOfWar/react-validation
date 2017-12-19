@@ -53,12 +53,12 @@ export default class Form extends Component {
         const length = validations.length;
 
         for (let i = 0; i < length; i += 1) {
+            /* eslint-disable */
             if (!rules[validations[i]].rule(component.state.value, component.props, this.components)) {
-                /* eslint-disable */
                 prev[name] = prev[name] || [];
                 prev[name].push(validations[i]);
-                /* eslint-enable */
             }
+            /* eslint-enable */
         }
 
         return prev;
