@@ -9,7 +9,8 @@ export default class Input extends Base {
         validations: PropTypes.arrayOf(PropTypes.string).isRequired,
         errorClassName: PropTypes.string,
         containerClassName: PropTypes.string,
-        errorContainerClassName: PropTypes.string
+        errorContainerClassName: PropTypes.string,
+        validateAgainst: PropTypes.string
     };
 
     static contextTypes = {
@@ -47,6 +48,7 @@ export default class Input extends Base {
             containerClassName,
             errorContainerClassName,
             className,
+            validateAgainst,
             ...rest } = this.props;
         // TODO: Refactor conditions
         const isInvalid = this.state.isUsed
@@ -55,6 +57,8 @@ export default class Input extends Base {
         const value = this.state.isCheckbox ? this.props.value : this.state.value;
         const error = isInvalid && this.context.errors[this.props.name][0];
         let hint = null;
+
+        console.log(validateAgainst);
 
         if (isInvalid) {
             hint = typeof error === 'function' ? error(value, this.context.components) : rules[error].hint(value, this.context.components);

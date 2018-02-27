@@ -9,7 +9,8 @@ export default class Textarea extends Base {
         validations: PropTypes.arrayOf(PropTypes.string).isRequired,
         errorClassName: PropTypes.string,
         containerClassName: PropTypes.string,
-        errorContainerClassName: PropTypes.string
+        errorContainerClassName: PropTypes.string,
+        validateAgainst: PropTypes.string
     };
 
     static contextTypes = {
@@ -42,6 +43,7 @@ export default class Textarea extends Base {
             containerClassName,
             errorContainerClassName,
             className,
+            validateAgainst,
             ...rest } = this.props;
         // TODO: Refactor conditions
         const isInvalid = this.state.isUsed &&
@@ -49,6 +51,8 @@ export default class Textarea extends Base {
             !!this.context.errors[this.props.name];
         const error = isInvalid && this.context.errors[this.props.name][0];
         let hint = null;
+
+        console.log(validateAgainst);
 
         if (isInvalid) {
             hint = typeof error === 'function' ? error(this.state.value, this.context.components) : rules[error].hint(this.state.value, this.context.components);

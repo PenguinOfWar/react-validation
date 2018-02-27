@@ -6896,9 +6896,12 @@
 	            var _props = this.props,
 	                errorClassName = _props.errorClassName,
 	                className = _props.className,
-	                rest = _objectWithoutProperties(_props, ['errorClassName', 'className']);
+	                validateAgainst = _props.validateAgainst,
+	                rest = _objectWithoutProperties(_props, ['errorClassName', 'className', 'validateAgainst']);
 	
 	            var isDisabled = Object.keys(this.context.errors).length;
+	
+	            console.log(validateAgainst);
 	
 	            return _react2.default.createElement(
 	                'button',
@@ -6917,7 +6920,8 @@
 	Button.propTypes = {
 	    children: _propTypes2.default.node,
 	    errorClassName: _propTypes2.default.string,
-	    className: _propTypes2.default.string
+	    className: _propTypes2.default.string,
+	    validateAgainst: _propTypes2.default.string
 	};
 	Button.contextTypes = {
 	    errors: _propTypes2.default.objectOf(_propTypes2.default.array)
@@ -7005,7 +7009,8 @@
 	                containerClassName = _props.containerClassName,
 	                errorContainerClassName = _props.errorContainerClassName,
 	                className = _props.className,
-	                rest = _objectWithoutProperties(_props, ['validations', 'errorClassName', 'containerClassName', 'errorContainerClassName', 'className']);
+	                validateAgainst = _props.validateAgainst,
+	                rest = _objectWithoutProperties(_props, ['validations', 'errorClassName', 'containerClassName', 'errorContainerClassName', 'className', 'validateAgainst']);
 	            // TODO: Refactor conditions
 	
 	
@@ -7013,6 +7018,8 @@
 	            var value = this.state.isCheckbox ? this.props.value : this.state.value;
 	            var error = isInvalid && this.context.errors[this.props.name][0];
 	            var hint = null;
+	
+	            console.log(validateAgainst);
 	
 	            if (isInvalid) {
 	                hint = typeof error === 'function' ? error(value, this.context.components) : _rules2.default[error].hint(value, this.context.components);
@@ -7041,7 +7048,8 @@
 	    validations: _propTypes2.default.arrayOf(_propTypes2.default.string).isRequired,
 	    errorClassName: _propTypes2.default.string,
 	    containerClassName: _propTypes2.default.string,
-	    errorContainerClassName: _propTypes2.default.string
+	    errorContainerClassName: _propTypes2.default.string,
+	    validateAgainst: _propTypes2.default.string
 	};
 	Input.contextTypes = {
 	    register: _propTypes2.default.func.isRequired,
@@ -7129,13 +7137,16 @@
 	                containerClassName = _props.containerClassName,
 	                errorContainerClassName = _props.errorContainerClassName,
 	                className = _props.className,
-	                rest = _objectWithoutProperties(_props, ['validations', 'errorClassName', 'containerClassName', 'errorContainerClassName', 'className']);
+	                validateAgainst = _props.validateAgainst,
+	                rest = _objectWithoutProperties(_props, ['validations', 'errorClassName', 'containerClassName', 'errorContainerClassName', 'className', 'validateAgainst']);
 	            // TODO: Refactor conditions
 	
 	
 	            var isInvalid = this.state.isUsed && this.state.isChanged && !!this.context.errors[this.props.name];
 	            var error = isInvalid && this.context.errors[this.props.name][0];
 	            var hint = null;
+	
+	            console.log(validateAgainst);
 	
 	            if (isInvalid) {
 	                hint = typeof error === 'function' ? error(this.state.value, this.context.components) : _rules2.default[error].hint(this.state.value, this.context.components);
@@ -7168,7 +7179,8 @@
 	    validations: _propTypes2.default.arrayOf(_propTypes2.default.string).isRequired,
 	    errorClassName: _propTypes2.default.string,
 	    containerClassName: _propTypes2.default.string,
-	    errorContainerClassName: _propTypes2.default.string
+	    errorContainerClassName: _propTypes2.default.string,
+	    validateAgainst: _propTypes2.default.string
 	};
 	Select.contextTypes = {
 	    register: _propTypes2.default.func.isRequired,
@@ -7255,13 +7267,16 @@
 	                containerClassName = _props.containerClassName,
 	                errorContainerClassName = _props.errorContainerClassName,
 	                className = _props.className,
-	                rest = _objectWithoutProperties(_props, ['validations', 'errorClassName', 'containerClassName', 'errorContainerClassName', 'className']);
+	                validateAgainst = _props.validateAgainst,
+	                rest = _objectWithoutProperties(_props, ['validations', 'errorClassName', 'containerClassName', 'errorContainerClassName', 'className', 'validateAgainst']);
 	            // TODO: Refactor conditions
 	
 	
 	            var isInvalid = this.state.isUsed && this.state.isChanged && !!this.context.errors[this.props.name];
 	            var error = isInvalid && this.context.errors[this.props.name][0];
 	            var hint = null;
+	
+	            console.log(validateAgainst);
 	
 	            if (isInvalid) {
 	                hint = typeof error === 'function' ? error(this.state.value, this.context.components) : _rules2.default[error].hint(this.state.value, this.context.components);
@@ -7290,7 +7305,8 @@
 	    validations: _propTypes2.default.arrayOf(_propTypes2.default.string).isRequired,
 	    errorClassName: _propTypes2.default.string,
 	    containerClassName: _propTypes2.default.string,
-	    errorContainerClassName: _propTypes2.default.string
+	    errorContainerClassName: _propTypes2.default.string,
+	    validateAgainst: _propTypes2.default.string
 	};
 	Textarea.contextTypes = {
 	    register: _propTypes2.default.func.isRequired,

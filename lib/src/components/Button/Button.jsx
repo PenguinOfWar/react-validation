@@ -6,7 +6,8 @@ export default class Button extends Component {
     static propTypes = {
         children: PropTypes.node,
         errorClassName: PropTypes.string,
-        className: PropTypes.string
+        className: PropTypes.string,
+        validateAgainst: PropTypes.string
     };
 
     static contextTypes = {
@@ -14,8 +15,10 @@ export default class Button extends Component {
     };
 
     render() {
-        const { errorClassName, className, ...rest } = this.props;
+        const { errorClassName, className, validateAgainst, ...rest } = this.props;
         const isDisabled = Object.keys(this.context.errors).length;
+
+        console.log(validateAgainst);
 
         return (
             <button
